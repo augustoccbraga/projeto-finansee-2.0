@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-green-100: #e6f7ec;
+  --color-green-200: #c0edd1;
+  --color-green-300: #8fdeaf;
+  --color-green-400: #57ce7c;
+  --color-green-500: #2ea55c;
+
+  --color-accent-100: #f0f4f8;
+  --color-accent-200: #d6e0eb;
+  --color-accent-300: #afc3d7;
+  --color-accent-400: #6f96b4;
+  --color-accent-500: #3d6f8d;
+
+  /* neutrals light */
+  --color-white-100: #ffffff;
+  --color-white-200: #f7f9fa;
+  --color-white-300: #e1e5e8;
+  --color-white-400: #c7cdd2;
+  --color-white-500: #adb4ba;
+
+  /* neutrals dark */
+  --color-black-100: #000000;
+  --color-black-200: #121212;
+  --color-black-300: #2a2a2a;
+  --color-black-400: #444444;
+  --color-black-500: #666666;
+
+  /* fonts */
+  --font-sans:
+    "Inter", sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    "Merriweather", serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
