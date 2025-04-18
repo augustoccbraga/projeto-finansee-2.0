@@ -9,8 +9,8 @@ function App() {
     <ThemeProvider>
       <Router>
         <AppRoutes />
+        <ThemeToggle />
       </Router>
-      <ThemeToggle />
     </ThemeProvider>
   );
 }
