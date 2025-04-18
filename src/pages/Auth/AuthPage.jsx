@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import AuthLayout from "../../layouts/AuthLayout";
+import { useNavigate } from "react-router-dom";
 import AuthBackground from "../../components/AuthBackground";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import AnimatedElement from "../../components/AnimatedElement";
+import { IoArrowBack } from "react-icons/io5"; // Importe o ícone de seta
+import ButtonIcon from "../../components/ButtonIcon";
 
 const AuthPage = () => {
+  const navigate = useNavigate(); // Hook para navegação
   const [isRegistering, setIsRegistering] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -34,8 +37,14 @@ const AuthPage = () => {
   };
 
   return (
-    <AuthLayout>
+    <>
       <AuthBackground isRegistering={isRegistering} />
+
+      <ButtonIcon
+        icon={IoArrowBack}
+        onClick={() => navigate("/")}
+        className="fixed top-8 left-8 z-20"
+      />
 
       {/* Form Container */}
       <div className="relative z-10 min-h-screen">
@@ -43,17 +52,17 @@ const AuthPage = () => {
           className={`fixed top-0 h-full w-full transition-all duration-700 ease-in-out lg:w-1/4 ${isRegistering ? "lg:left-3/4" : "left-0"}`}
         >
           <div className="bg-white-100 dark:bg-black-300 h-full w-full p-6 lg:p-8">
-            <div className="mx-auto w-full max-w-md">
+            <div className="mx-auto mt-16 w-full max-w-md">
+              {" "}
+              {/* Adicionado mt-16 para descer o formulário */}
               <h1 className="text-black-100 dark:text-white-100 mb-3 text-2xl font-bold sm:text-3xl">
                 {isRegistering ? "Registrar" : "Login"}
               </h1>
-
               <p className="text-black-500 dark:text-white-500 mb-8">
                 {isRegistering
                   ? "Crie sua conta para aproveitar dos benefícios de utilizar o FinanSee."
                   : "Seja bem vindo de volta! Faça o login para continuar."}
               </p>
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 {isRegistering ? (
                   <div className="space-y-6">
@@ -199,7 +208,7 @@ const AuthPage = () => {
           </div>
         </div>
       </div>
-    </AuthLayout>
+    </>
   );
 };
 
